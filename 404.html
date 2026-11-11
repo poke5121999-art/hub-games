@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Không tìm thấy trang</title>
+<script>
+// Trang của hub (login.html, feedback.html, ...) không có ở repo này: một link tương đối sót trong game
+// (vd ../../login.html?next=...) rơi vào /hub-games/<trang> thì đưa về đúng trang đó trên hub, giữ query/hash.
+(function () {
+  var p = location.pathname, base = "/hub-games/";
+  if (p.indexOf(base) === 0 && p.indexOf(base + "games/") !== 0) {
+    location.replace("/survivor-web-hub/" + p.slice(base.length) + location.search + location.hash);
+  }
+})();
+</script>
+<style>body{font:16px/1.5 system-ui,sans-serif;background:#0f1115;color:#e5e7eb;margin:0;padding:48px 16px;text-align:center}a{color:#93c5fd}</style>
+</head>
+<body><h1>Không tìm thấy trang</h1><p><a href="/survivor-web-hub/index.html">Về Game Hub</a></p></body>
+</html>
